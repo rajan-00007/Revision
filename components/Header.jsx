@@ -33,8 +33,9 @@ const NavItem = styled.a`
   &:hover {
     text-decoration: underline;
   }
+background-color: ${({ $active }) =>
+    $active ? '#1D4ED8' : 'transparent'};
 
-  background-color: ${(props) => (props.active ? '#1D4ED8' : 'transparent')};
 `
 
 export default function Header() {
@@ -46,17 +47,32 @@ export default function Header() {
                 <h1 className="text-xl  font-bold">MyApp</h1>
                 <NavList>
                     <li>
-                        <NavItem active={pathname === '/'} href="/">
+                        <NavItem $active={pathname === '/'} href="/">
                             Home
                         </NavItem>
                     </li>
                     <li>
-                        <NavItem active={pathname === '/about'} href="/shadcn">
+                        <NavItem $active={pathname === '/about'} href="/shadcn">
                             Shadcn
                         </NavItem>
                     </li>
                     <li>
-                        <NavItem active={pathname === '/login'} href="/login">
+                        <NavItem $active={pathname === '/products'} href="/products">
+                            Products
+                        </NavItem>
+                    </li>
+                    <li>
+                        <NavItem $active={pathname === '/zod'} href="/zod">
+                            Zod
+                        </NavItem>
+                    </li>
+                    <li>
+                        <NavItem $active={pathname === '/react-hook-form'} href="/react-hook-form">
+                            RFH
+                        </NavItem>
+                    </li>
+                    <li>
+                        <NavItem $active={pathname === '/login'} href="/login">
                             Login
                         </NavItem>
                     </li>
