@@ -27,8 +27,9 @@ export const registerSchema = z.object({
         .min(2, "Designation too short")
         .optional(),
 
-    city: z.string().min(2),
-    state: z.string().min(2),
+    city: z.string().min(2, { message: "City must be at least 2 characters" }),
+    state: z.string().min(2, { message: "State must be at least 2 characters" }),
+
 
     zip: z
         .string()

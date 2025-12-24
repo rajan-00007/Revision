@@ -82,6 +82,12 @@ export default function Header() {
                             Day-3
                         </NavItem>
                     </li>
+
+                    <li>
+                        <NavItem $active={pathname === '/day-3/dashboard'} href="/day-3/dashboard">
+                            Dashboard
+                        </NavItem>
+                    </li>
                 </NavList>
             </Nav>
         </HeaderContainer>

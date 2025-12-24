@@ -1,6 +1,83 @@
+/* ------------------------------------------------------
+   Tailwind imports (MUST be first)
+------------------------------------------------------ */
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* ------------------------------------------------------
+   Global Design Tokens (READ by styled-components)
+------------------------------------------------------ */
+:root {
+  /* Radius */
+  --radius: 0.625rem;
+
+  /* Base Colors */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+
+  /* Card */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+
+  /* Popover */
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+
+  /* Primary */
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+
+  /* Secondary */
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+
+  /* Muted */
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+
+  /* Accent */
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+
+  /* Destructive */
+  --destructive: oklch(0.577 0.245 27.325);
+
+  /* Borders & Inputs */
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+
+  /* --------------------------------------------------
+     APP-SPECIFIC TOKENS (USED BY styled.ts)
+  -------------------------------------------------- */
+
+  /* Page */
+  --color-page-bg: #f3f4f6;
+
+  /* Cards */
+  --color-card-bg: #ffffff;
+  --color-card-shadow: rgba(0, 0, 0, 0.05);
+
+  /* Tabs */
+  --color-tab-active-bg: #0070f3;
+  --color-tab-active-text: #ffffff;
+  --color-tab-inactive-bg: #ffffff;
+  --color-tab-inactive-text: #000000;
+
+  /* Table */
+  --color-table-bg: #ffffff;
+  --color-table-header-bg: #f9fafb;
+  --color-table-header-border: #e5e7eb;
+  --color-table-row-even-bg: #f9fafb;
+
+  /* Badge */
+  --color-badge-active: #10b981;
+  --color-badge-inactive: #ef4444;
+}
+
+/* ------------------------------------------------------
+   Tailwind Theme Mapping (v4 REQUIRED)
+------------------------------------------------------ */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -24,6 +101,7 @@
   --color-accent-foreground: var(--accent-foreground);
 
   --color-destructive: var(--destructive);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -34,37 +112,9 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-:root {
-  --radius: 0.625rem;
-
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-
-  --destructive: oklch(0.577 0.245 27.325);
-
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-}
-
+/* ------------------------------------------------------
+   Base Styles
+------------------------------------------------------ */
 @layer base {
   * {
     @apply border-border outline-ring/50;
