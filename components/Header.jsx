@@ -76,6 +76,12 @@ export default function Header() {
                             Login
                         </NavItem>
                     </li>
+
+                    <li>
+                        <NavItem $active={pathname === '/day-3/register'} href="/day-3/register">
+                            Day-3
+                        </NavItem>
+                    </li>
                 </NavList>
             </Nav>
         </HeaderContainer>
