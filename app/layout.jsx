@@ -8,7 +8,7 @@ export default function RootLayout({ children }) {
       <body className="bg-gray-50 text-gray-900 font-sans">
         <StyledComponentsRegistry>
           <Header />
-          <main className="container mx-auto p-6">{children}</main>
+          <main className="container">{children}</main>
         </StyledComponentsRegistry>
       </body>
     </html>
