@@ -1,10 +1,11 @@
 import React from 'react'
-import Form from './Form'
+import Counter from './Counter'
+
 
 const page = () => {
   return (
     <div className=' w-[99vw]'>
-      <Form/>
+        <Counter/>
     </div>
   )
 }

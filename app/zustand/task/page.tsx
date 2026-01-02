@@ -1,10 +1,12 @@
 import React from 'react'
-import Form from './Form'
+import TaskTracker from './Task'
+
+
 
 const page = () => {
   return (
     <div className=' w-[99vw]'>
-      <Form/>
+        <TaskTracker/>
     </div>
   )
 }

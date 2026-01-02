@@ -13,7 +13,7 @@ const HeaderContainer = styled.header`
 `;
 
 const Nav = styled.nav`
-  max-width: 1200px;
+
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -145,6 +145,12 @@ export default function Header() {
           <li>
             <NavItem $active={pathname === "/add-new-building"} href="/add-new-building">
              Add Building
+            </NavItem>
+          </li>
+
+          <li>
+            <NavItem $active={pathname === "/zustand/test"} href="/zustand/test">
+             test
             </NavItem>
           </li>
         </NavList>
