@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 export type Day = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat";
 
@@ -20,7 +21,9 @@ interface TaskStore {
   completedTasks: () => number;
 }
 
-const useTaskStore = create<TaskStore>((set, get) => ({
+const useTaskStore = create<TaskStore>()(persist
+(  
+  (set, get) => ({
 
   tasks: [],
 
@@ -62,7 +65,11 @@ const useTaskStore = create<TaskStore>((set, get) => ({
     get().tasks.filter((task) => task.completed).length,
 
 
-}))
+}),{
+  name:"tasks-storage"
+})
+
+)
 
 export default useTaskStore;
 

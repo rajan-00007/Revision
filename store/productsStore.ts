@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 import axios from "axios";
 import { error } from "console";
@@ -27,73 +28,80 @@ export type ProductStore = {
 
 }
 
-const useProductStore = create<ProductStore>((set) => ({
+const useProductStore = create<ProductStore>()(
+  persist(
 
-  products: [],
-  product: null,
-  loading: false,
-  error: null,
+    (set) => ({
 
-  fetchProducts: async () => {
+      products: [],
+      product: null,
+      loading: false,
+      error: null,
 
-    set({
-      loading: true,
-      error: null
-    });
+      fetchProducts: async () => {
 
-    try {
-      const res = await axios.get(
-        "https://dummyjson.com/products?limit=100&skip=100"
-      )
+        set({
+          loading: true,
+          error: null
+        });
 
-      set({
-        products: res.data.products,
-      })
+        try {
+          const res = await axios.get(
+            "https://dummyjson.com/products?limit=100&skip=100"
+          )
 
-    } catch (err) {
+          set({
+            products: res.data.products,
+          })
 
-      set({
-        error: " Failed to fetch Products",
-      });
-    } finally {
+        } catch (err) {
 
-      set({
-        loading: false,
-      });
-    }
-  },
+          set({
+            error: " Failed to fetch Products",
+          });
+        } finally {
 
-  fetchProductById: async (id) => {
+          set({
+            loading: false,
+          });
+        }
+      },
 
-    set({
-      loading: true,
-      error: null
-    })
+      fetchProductById: async (id) => {
 
-    try {
+        set({
+          loading: true,
+          error: null
+        })
 
-      const res = await axios.get(
-        `https://dummyjson.com/products/${id}`
-      )
+        try {
 
-      set({
-        product: res.data
-      });
-    } catch (err) {
+          const res = await axios.get(
+            `https://dummyjson.com/products/${id}`
+          )
 
-      set({
-        error: " Failed to fetch product"
-      })
-    } finally {
+          set({
+            product: res.data
+          });
+        } catch (err) {
 
-      set({
-        loading: false
-      })
-    }
+          set({
+            error: " Failed to fetch product"
+          })
+        } finally {
 
+          set({
+            loading: false
+          })
+        }
+
+      }
+
+    }), {
+    name: "current-products"
   }
-
-}))
+  )
+)
 
 export default useProductStore;
 

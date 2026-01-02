@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 interface CounterStore {
     count: number;
@@ -8,7 +9,9 @@ interface CounterStore {
     reset: () => void;
 }
 
-const useCounterStore = create<CounterStore>((set)=>({
+const useCounterStore = create<CounterStore>()(
+    persist(
+    (set)=>({
 
     count:0,
 
@@ -28,6 +31,11 @@ const useCounterStore = create<CounterStore>((set)=>({
         set((state) => ({ count:0}))
     }
  
-}))
+}),{
+    name:"counter",
+    storage: createJSONStorage(()=> sessionStorage)
+})
+
+)
 
 export default useCounterStore;

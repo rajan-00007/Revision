@@ -8,7 +8,7 @@ import {
   ProductTitle,
 } from "@/app/products/Styled";
 import useProductStore from "@/store/productsStore";
-import { Pagediv } from "../../products/Styled";
+import { ActionButton, Pagediv } from "../../products/Styled";
 
 const page = () => {
   const products = useProductStore((state) => state.products);
@@ -20,9 +20,11 @@ const page = () => {
   return (
     <>
     <Pagediv>
-      <div className=" w-[100vw]">
+      <div className=" w-[100vw] flex flex-col justify-center items-center">
         <h1 className="text-[50px] text-center m-2">Rating Filter Data </h1>
         <h1 className="text-[30px] text-center m-2">Total Products: {topRatedProducts.length}</h1>
+
+        <ActionButton onClick={useProductStore.persist.clearStorage}>Clear Storage</ActionButton>
       </div>
       <ProductsGrid>
         {topRatedProducts.map((product) => (
