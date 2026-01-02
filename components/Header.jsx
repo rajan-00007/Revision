@@ -149,8 +149,8 @@ export default function Header() {
           </li>
 
           <li>
-            <NavItem $active={pathname === "/zustand/test"} href="/zustand/test">
-             test
+            <NavItem $active={pathname === "/zustand"} href="/zustand">
+             Zustand
             </NavItem>
           </li>
         </NavList>
