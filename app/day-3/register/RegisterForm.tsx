@@ -1,6 +1,6 @@
 "use client";
 
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller,useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema, RegisterFormValues } from "./schema";
 

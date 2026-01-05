@@ -163,6 +163,7 @@ export const Row = styled.div<{ gap?: string }>`
   /* border: 1px solid black; */
   gap: ${(p) => p.gap || "12px"};
   align-items: flex-start;
+  margin-top:1px;
 
   @media (max-width: ${breakpoints.mobile}) {
     gap: 16px;
@@ -212,7 +213,7 @@ export const Label = styled.label`
 `;
 
 export const Label2 = styled.label`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
  // border:1px solid red;
   
@@ -220,9 +221,9 @@ export const Label2 = styled.label`
 
 /* Error */
 export const Error = styled.span`
-  min-height: 17px;
+  min-height: 20px;
   
-  font-size: 11px;
+  font-size: 13px;
   color: #dc2626;
   margin-top: 1px;
   margin-bottom:2px;
@@ -232,6 +233,12 @@ export const Error = styled.span`
 export const StyledInput = styled(Input)`
   height: 38px;
   width: 100%;
+
+   &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 1px #3b82f6; /* Tailwind blue-500 */
+    border-color: #3b82f6;
+  }
 `;
 
 /* Submit */
@@ -278,7 +285,7 @@ export const DialogHeaderBar = styled.div`
   flex-shrink: 0;
 
   @media (max-width: ${breakpoints.mobile}) {
-    padding: 12px 16px;
+    padding: 2px 16px;
   }
 `;
 
@@ -290,7 +297,7 @@ export const DialogScrollContent = styled.div`
   background: white;
  
   @media (max-width: ${breakpoints.mobile}) {
-    padding: 16px;
+    padding:0px 16px 25px 16px;
   }
 `;
 
